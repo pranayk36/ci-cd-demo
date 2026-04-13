@@ -1,13 +1,13 @@
 package com.demo;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
+class AppTest {
 
     @Test
-    public void testAdd() {
-        App app = new App();
-        assertEquals(5, app.add(2, 3));
+    void testAdd() {
+        AppController controller = new AppController();
+        assertEquals(5, controller.add(2, 3));
     }
 }
