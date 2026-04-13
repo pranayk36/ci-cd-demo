@@ -35,7 +35,7 @@ pipeline {
     	   steps {
 		bat 'docker stop ci-cd-container || exit 0'
 	        bat 'docker rm ci-cd-container || exit 0'
-        	bat 'docker run -d -p 8081:8080 --name ci-cd-container ci-cd-demo'
+        	bat 'docker run -d -p 9090:8080 --name ci-cd-container ci-cd-demo'
     	    }
 	}
     }
