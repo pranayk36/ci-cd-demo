@@ -30,12 +30,13 @@ pipeline {
         	bat 'docker build -t ci-cd-demo .'
     	    }
 	}
-
-	stage('Deploy to Kubernetes') {
- 	   steps {
-        	bat 'kubectl apply -f deployment.yaml'
-	        bat 'kubectl apply -f service.yaml'
+	
+	stage('Deploy') {
+    	   steps {
+		bat 'docker stop ci-cd-container || exit 0'
+	        bat 'docker rm ci-cd-container || exit 0'
+        	bat 'docker run -d -p 8082:8080 --name ci-cd-container ci-cd-demo'
     	    }
-	}	
+	}
     }
 }
