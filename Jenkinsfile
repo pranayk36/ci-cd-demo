@@ -31,6 +31,13 @@ pipeline {
     	    }
 	}
 
+	stage('K8s Debug') {
+            steps {
+                bat 'kubectl config view'
+                bat 'kubectl get nodes'
+            }
+        }
+
 	stage('Deploy to Kubernetes') {
  	   steps {
         	bat 'kubectl apply -f deploy.yaml --validate=false'
